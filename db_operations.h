@@ -4,6 +4,14 @@ namespace db
 {
 	web::json::value getData_fromRegion(std::string regionName)
 	{
+		if (regionName.empty())
+		{
+			web::json::value bodyData_errorMsg;
+			bodyData_errorMsg[get__string_t("ErrorMsg")] = web::json::value::string(get__string_t("arg is empty!"));
+			
+			return bodyData_errorMsg;
+		}
+
 		std::string request_str = "tag=\"" + regionName + "\"";
 		try
 		{
@@ -46,6 +54,14 @@ namespace db
 
 	web::json::value getImages_fromID(std::string ID)
 	{
+		if (ID.empty())
+		{
+			web::json::value bodyData_errorMsg;
+			bodyData_errorMsg[get__string_t("ErrorMsg")] = web::json::value::string(get__string_t("arg is empty!"));
+
+			return bodyData_errorMsg;
+		}
+
 		std::string request_str = "id=" + ID;
 		try
 		{
