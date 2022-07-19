@@ -34,8 +34,8 @@ std::string mysqlcppconn_test(std::string tag)
 
 void filesystem_test()
 {
-	const std::filesystem::path sandbox("Photos\\13230345602488322");
-	for (auto const& dir_entry : std::filesystem::directory_iterator(sandbox))
+	const std::filesystem::path pathObject("Photos\\13230345602488322");
+	for (auto const& dir_entry : std::filesystem::directory_iterator(pathObject))
 	{
 		std::cout << dir_entry << '\n';
 	}
